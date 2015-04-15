@@ -19,7 +19,7 @@ block main
 							li.inline: span.small By: #{post.author}
 
 		
-		ul.nm.no-style-type.slash-list
+		ul.mt2.no-style-type.slash-list
 			if pagination.previous
 				- console.log(pagination.previous.path)
 				if pagination.previous.pagination.num == 1
@@ -29,3 +29,14 @@ block main
 			if pagination.next
 				- console.log(pagination.next)
 				li.inline: a(href='/page/'+pagination.next.pagination.num+'/') next
+
+
+		ul.nm.no-style-type.slash-list
+			- var n = 0
+			while n < pagination.pages.length
+				- n++
+				- url = (n == 1) ? '/':'/page/'+n+'/'
+				- cl = (n == pagination.num) ? 'modal bold':'subtle'
+				li.inline: a(href=url, class=cl)= n
+
+
