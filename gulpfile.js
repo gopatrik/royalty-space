@@ -1,15 +1,18 @@
-var metalsmith = require('metalsmith'),
-  branch = require('metalsmith-branch'),
-  collections = require('metalsmith-collections'),
-  excerpts = require('metalsmith-excerpts'),
-  markdown = require('metalsmith-markdown'),
-  permalinks = require('metalsmith-permalinks'),
-  serve = require('metalsmith-serve'),
-  templates = require('metalsmith-templates'),
-  watch = require('metalsmith-watch'),
-  stylus = require('metalsmith-stylus'),
-  ignore = require('metalsmith-ignore'),
-  moment = require('moment');
+var metalsmith = require('metalsmith');
+var branch = require('metalsmith-branch');
+var collections = require('metalsmith-collections');
+var excerpts = require('metalsmith-excerpts');
+var markdown = require('metalsmith-markdown');
+var permalinks = require('metalsmith-permalinks');
+var serve = require('metalsmith-serve');
+var templates = require('metalsmith-templates');
+var watch = require('metalsmith-watch');
+var stylus = require('metalsmith-stylus');
+var ignore = require('metalsmith-ignore');
+var autoprefixer = require('metalsmith-autoprefixer');
+var pagination = require('metalsmith-pagination');
+
+var moment = require('moment');
 
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
@@ -26,6 +29,39 @@ gulp.task('metalsmith', function (done) {
     .use(ignore('./contents/templates/'))
     .use(markdown())
     .use(stylus())
+    .use(autoprefixer())
+    .use(collections({
+    	articles: {
+		    pattern: 'articles/*/*.html',
+		    sortBy: 'date',
+		    reverse: true
+	  	}
+    }))
+	.use(branch('articles/**/**')
+	  .use(permalinks({
+	    pattern: 'art/:title',
+	    relative: false
+	  }))
+	)
+	// .use(branch('!articles/**/**.html')
+	//   .use(branch('!index.md').use(permalinks({
+	//     relative: false
+	//   })))
+	// )
+    .use(pagination({
+      'collections.articles': {
+        perPage: 2,
+        template: 'index.jade',
+        first: 'index.html',
+        path: 'page/:num/index.html',
+        filter: function (page) {
+          return !page.private
+        },
+        pageMetadata: {
+          title: 'Archive'
+        }
+      }
+    }))
     .use(templates({
       engine: 'jade',
       directory: './contents/templates',
@@ -33,6 +69,7 @@ gulp.task('metalsmith', function (done) {
     }))
     .source('./contents')
     .destination('./build')
+
 
   .build(function (err) {
     if (err) {

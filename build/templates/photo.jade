@@ -1,8 +1,11 @@
-doctype html
-html
-	head
-		title My Blog
-	body
-		h1= title
-		time= date
-		div!= contents
+extends layout
+
+block main
+	main.single-photo
+		article
+			header
+				h1= title
+
+			img(src=preview)
+			time= date
+			div!= contents
