@@ -4,11 +4,29 @@ html
 		title= title
 		meta(name='description', content= description)
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
-		//- script(src="http://localhost:35729/livereload.js")
+
 	body
-		block nav
+		header
 			nav
-				ul
-					li: a(href="/first-post") post
+				ul.no-style-type.mt
+					li.inline: h1.inline
+						//- a.no-decoration.logo(href="/") The 
+						//- 	span.modal Royal 
+						//- 	| Space Program
+						//- a.no-decoration.logo(href="/")
+						//- 	span.modal royalty
+						//- 	| Space
+						a.no-decoration.logo(href="/")
+							span.modal.skinny unroyal
+							span.skinny space
+
+			p Royality free photos from space
+
+		block nav
+
 		block main
-		script(src="http://localhost:35729/livereload.js")
+
+
+		footer.mt2
+
+

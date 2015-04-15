@@ -1,4 +1,31 @@
 extends layout
 
 block main
-	h1 indexs
+
+	//- p= pagination.files
+	//- - console.log("NEXT")
+	
+	main.preview.list
+		if pagination.files && pagination.files.length > 0
+			each post in pagination.files
+				article
+					a(href='/'+post.path): img(src="/"+post.path+'/'+post.preview)
+					footer.metadata
+						ul.nm.no-style-type.slash-list
+							li.inline: a(href='/'+post.path): h1.small.skinny!= post.title
+							li.inline: a.small(href='/'+post.path) Download
+							li.inline: a.small(href='/'+post.path) Source
+							li.inline: span.small sizes
+							li.inline: span.small By: #{post.author}
+
+		
+		ul.nm.no-style-type.slash-list
+			if pagination.previous
+				- console.log(pagination.previous.path)
+				if pagination.previous.pagination.num == 1
+					li.inline: a(href='/') previous
+				else
+					li.inline: a(href='/page/'+pagination.previous.pagination.num+'/') previous
+			if pagination.next
+				- console.log(pagination.next)
+				li.inline: a(href='/page/'+pagination.next.pagination.num+'/') next
