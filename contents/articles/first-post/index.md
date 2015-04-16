@@ -1,6 +1,6 @@
 ---
 title: My First Post
-date: 2012-08-20
+date: 2014-04-15
 preview: preview.jpg
 template: photo.jade
 ---

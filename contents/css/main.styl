@@ -1,28 +1,35 @@
 @import 'reset.css'
+@import '_vars'
 @import '_defaults'
 
-modal = rgb(200, 90, 90)
+// foreground = white
+// background = #2A2E39
+
 
 body
-	background #f4f4f4
+	background background
 	// width 100vw
 	text-align center
 	font-family avenir
 a
 	color modal
 	text-decoration none
+	
 
 h1,h2,h3,h4,h5,h6
-	color rgba(black, 0.3)
+	color rgba(foreground, 0.6)
 p
-	color rgba(black, 0.5)
+	color rgba(foreground, 0.9)
+
+article, div, section, header, main, img
+	box-sizing border-box
 
 .logo
 	font-family avenir, futura, sans
 	font-weight 900
 	text-transform uppercase
 	letter-spacing 15px
-	color rgba(black, 0.3)
+	color rgba(foreground, 0.6)
 	.modal
 		color modal
 
@@ -33,16 +40,43 @@ p
 	align-items center
 	article
 		flex 1 auto
-		img
-			max-width 100%
-			outline 1px solid white
+		// outline 10px solid rgba(foreground,0.8)
+		// .metadata
+		// 	background background
+		// 	z-index 100
+		// 	bottom 0
+		// 	width 100%
+		// 	opacity 0
+		// 	transform translate3d(0, 40px, 0);
+		// 	transition opacity 5s, transform 1s
+		.image
+			// background foreground
+			overflow hidden
+			// padding 20px
+			border 2px solid foreground
+			// &:hover
+			// 	.metadata
+			// 		transition opacity .5s, transform .5s
+			// 		opacity 0.9
+			// 		transform none
+			img
+				margin 0
+				padding 0
+				transition transform 0.5s
+				max-width 100%
+				vertical-align middle
+				transform scale3d(1.1, 1.1, 1);
+				&:hover
+					transform none
+					
+
 		max-width 900px
 		padding 20px	
 
 main.single-photo
 	@extend .list-flex
 
-	
+
 
 main.preview
 	@extend .list-flex
@@ -58,7 +92,7 @@ main.preview
 		article
 			margin-top 20px
 			padding 20px
-			box-sizing border-box
+			
 			flex 1 100%
 			overflow hidden
 
@@ -79,5 +113,7 @@ main.preview
 			&:before
 				margin-left 10px
 				margin-right @margin-left
+				font-size 1.5em
+				vertical-align middle
 				content '/'
-				color rgba(black,0.4)
+				color rgba(foreground,0.4)
