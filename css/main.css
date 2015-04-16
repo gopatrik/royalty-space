@@ -35,11 +35,20 @@ a.no-decoration {
 .bold {
   font-weight: bold;
 }
+.mt05 {
+  margin-top: 1em;
+}
 .mt {
   margin-top: 1.4em;
 }
 .mt2 {
   margin-top: 2.4em;
+}
+.mt3 {
+  margin-top: 3.4em;
+}
+.mt4 {
+  margin-top: 4.4em;
 }
 .no-mb {
   margin-bottom: 0;
@@ -104,7 +113,7 @@ a.no-decoration {
   position: relative;
 }
 body {
-  background: #f4f4f4;
+  background: #fff;
   text-align: center;
   font-family: avenir;
 }
@@ -118,17 +127,25 @@ h3,
 h4,
 h5,
 h6 {
-  color: rgba(0,0,0,0.3);
+  color: rgba(0,0,0,0.6);
 }
 p {
-  color: rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0.9);
+}
+article,
+div,
+section,
+header,
+main,
+img {
+  box-sizing: border-box;
 }
 .logo {
   font-family: avenir, futura, sans;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 15px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0,0,0,0.6);
 }
 .logo .modal {
   color: #c85a5a;
@@ -162,11 +179,30 @@ main.preview article {
   max-width: 900px;
   padding: 20px;
 }
-.list-flex article img,
-main.single-photo article img,
-main.preview article img {
+.list-flex article .image,
+main.single-photo article .image,
+main.preview article .image {
+  overflow: hidden;
+  border: 2px solid #000;
+}
+.list-flex article .image img,
+main.single-photo article .image img,
+main.preview article .image img {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
   max-width: 100%;
-  outline: 1px solid #fff;
+  vertical-align: middle;
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+          transform: scale3d(1.1, 1.1, 1);
+}
+.list-flex article .image img:hover,
+main.single-photo article .image img:hover,
+main.preview article .image img:hover {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 main.preview.grid {
   display: -webkit-box;
@@ -186,7 +222,6 @@ main.preview.grid .metadata {
 main.preview.grid article {
   margin-top: 20px;
   padding: 20px;
-  box-sizing: border-box;
   -webkit-box-flex: 1;
   -webkit-flex: 1 100%;
       -ms-flex: 1 100%;
@@ -207,6 +242,8 @@ main.preview.grid article:nth-child(3n + 2) {
 .slash-list li:not(:first-child):before {
   margin-left: 10px;
   margin-right: 10px;
+  font-size: 1.5em;
+  vertical-align: middle;
   content: '/';
   color: rgba(0,0,0,0.4);
 }

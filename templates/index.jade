@@ -8,9 +8,12 @@ block main
 	main.preview.list
 		if pagination.files && pagination.files.length > 0
 			each post in pagination.files
-				article
-					a(href='/'+post.path): img(src="/"+post.path+'/'+post.preview)
-					footer.metadata
+				article.mt3
+					a(href='/'+post.path)
+						.image
+							img(src="/"+post.path+'/'+post.preview)
+					
+					footer.metadata.mt05
 						ul.nm.no-style-type.slash-list
 							li.inline: a(href='/'+post.path): h1.small.skinny!= post.title
 							li.inline: a.small(href='/'+post.path) Download
@@ -18,6 +21,8 @@ block main
 							li.inline: span.small sizes
 							li.inline: span.small By: #{post.author}
 
+
+		//- navigation
 		
 		ul.mt2.no-style-type.slash-list
 			if pagination.previous
