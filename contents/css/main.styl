@@ -28,8 +28,10 @@ article, div, section, header, main, img
 	font-family avenir, futura, sans
 	font-weight 900
 	text-transform uppercase
-	letter-spacing 15px
 	color rgba(foreground, 0.6)
+	.spaced
+		letter-spacing 15px
+
 	.modal
 		color modal
 
@@ -108,12 +110,26 @@ main.preview
 
 .slash-list
 	li
+		color subtle
 		
 		&:not(:first-child)
 			&:before
+				display inline-block
 				margin-left 10px
 				margin-right @margin-left
 				font-size 1.5em
 				vertical-align middle
 				content '/'
 				color rgba(foreground,0.4)
+				transition transform .2s
+
+				
+		a
+			display inline-block
+			&:hover
+				color modal + #222
+				transform scale3d(.95,.95,.95)
+			// 	&:before
+			// 		background modal
+			// 		transform scale3d(1,2,2)
+					

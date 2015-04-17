@@ -50,7 +50,7 @@ gulp.task('metalsmith', function (done) {
 	// )
     .use(pagination({
       'collections.articles': {
-        perPage: 2,
+        perPage: 8,
         template: 'index.jade',
         first: 'index.html',
         path: 'page/:num/index.html',
@@ -58,7 +58,7 @@ gulp.task('metalsmith', function (done) {
           return !page.private
         },
         pageMetadata: {
-          title: 'Archive'
+          title: 'P E E K S P A C E'
         }
       }
     }))

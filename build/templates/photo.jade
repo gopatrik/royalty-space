@@ -4,8 +4,8 @@ block main
 	main.single-photo
 		article
 			header
-				h1= title
+				//- h1= title
 
-			.image: img(src=preview)
+			.image: a(href='/'+path+'/'+full): img(src=preview)
 			time= date
 			div!= contents
