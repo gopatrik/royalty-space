@@ -112,6 +112,9 @@ a.no-decoration {
 .relative {
   position: relative;
 }
+.nospacing {
+  letter-spacing: none;
+}
 body {
   background: #fff;
   text-align: center;
@@ -144,8 +147,10 @@ img {
   font-family: avenir, futura, sans;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 15px;
   color: rgba(0,0,0,0.6);
+}
+.logo .spaced {
+  letter-spacing: 15px;
 }
 .logo .modal {
   color: #c85a5a;
@@ -239,11 +244,25 @@ main.preview.grid article:nth-child(3n + 2) {
           flex: 1 50%;
   height: 300px;
 }
+.slash-list li {
+  color: rgba(0,0,0,0.7);
+}
 .slash-list li:not(:first-child):before {
+  display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 1.5em;
   vertical-align: middle;
   content: '/';
   color: rgba(0,0,0,0.4);
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
+}
+.slash-list li a {
+  display: inline-block;
+}
+.slash-list li a:hover {
+  color: #ea7c7c;
+  -webkit-transform: scale3d(0.95, 0.95, 0.95);
+          transform: scale3d(0.95, 0.95, 0.95);
 }
