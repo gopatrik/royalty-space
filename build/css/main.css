@@ -157,7 +157,7 @@ img {
 }
 .list-flex,
 main.single-photo,
-main.preview {
+main.preview.list {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -176,7 +176,7 @@ main.preview {
 }
 .list-flex article,
 main.single-photo article,
-main.preview article {
+main.preview.list article {
   -webkit-box-flex: 1;
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
@@ -186,13 +186,13 @@ main.preview article {
 }
 .list-flex article .image,
 main.single-photo article .image,
-main.preview article .image {
+main.preview.list article .image {
   overflow: hidden;
   border: 2px solid #000;
 }
 .list-flex article .image img,
 main.single-photo article .image img,
-main.preview article .image img {
+main.preview.list article .image img {
   margin: 0;
   padding: 0;
   -webkit-transition: -webkit-transform 0.5s;
@@ -204,12 +204,14 @@ main.preview article .image img {
 }
 .list-flex article .image img:hover,
 main.single-photo article .image img:hover,
-main.preview article .image img:hover {
+main.preview.list article .image img:hover {
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
 }
 main.preview.grid {
+  margin: auto;
+  max-width: 1200px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -220,6 +222,16 @@ main.preview.grid {
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main.preview.grid img {
+  max-width: 100%;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
 }
 main.preview.grid .metadata {
   display: none;
@@ -228,21 +240,10 @@ main.preview.grid article {
   margin-top: 20px;
   padding: 20px;
   -webkit-box-flex: 1;
-  -webkit-flex: 1 100%;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+  -webkit-flex: 1 300px;
+      -ms-flex: 1 300px;
+          flex: 1 300px;
   overflow: hidden;
-}
-main.preview.grid article img {
-  max-width: 100%;
-}
-main.preview.grid article:nth-child(3n + 1),
-main.preview.grid article:nth-child(3n + 2) {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 50%;
-      -ms-flex: 1 50%;
-          flex: 1 50%;
-  height: 300px;
 }
 .slash-list li {
   color: rgba(0,0,0,0.7);

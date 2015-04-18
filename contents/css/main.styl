@@ -81,13 +81,22 @@ main.single-photo
 
 
 main.preview
-	@extend .list-flex
+	&.list
+		@extend .list-flex
 		
 
 	&.grid
+		margin auto
+		max-width 1200px
 		display flex
 		flex-flow row wrap
 		justify-content space-around
+		align-items center
+		img
+			max-width 100%
+			vertical-align middle
+			margin 0
+			padding 0
 		.metadata
 			display none
 
@@ -95,16 +104,16 @@ main.preview
 			margin-top 20px
 			padding 20px
 			
-			flex 1 100%
+			flex 1 300px
 			overflow hidden
 
-			img
-				max-width 100%
-				// height auto
+			// img
+			// 	max-width 100%
+			// 	// height auto
 
-			&:nth-child(3n + 1), &:nth-child(3n + 2)
-				flex 1 50%
-				height 300px
+			// &:nth-child(3n + 1), &:nth-child(3n + 2)
+			// 	flex 1 50%
+			// 	height 300px
 
 		
 
