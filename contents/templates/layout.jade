@@ -30,8 +30,9 @@ html
 
 				a
 
-		nav
-			ul.no-style-type.mt.slash-list
+
+		nav.relative
+			ul.no-style-type.slash-list.nm
 				li.inline: a.no-decoration(href="https://twitter.com/intent/tweet?screen_name=gopatrik&text=Hey!%20Take%20a%20look%20at%20this%20licence%20free%20image%20for%20peek.space: (url)", data-related="gopatrik", target="_blank")
 					i.fa.fa-twitter
 					|  Submit
@@ -40,9 +41,11 @@ html
 					i.fa.fa-twitter
 					|  Follow
 
-			.small-plus
+			.small-plus.mt
 				block altview
 					a.no-decoration.subtle(href="/grid"): i.fa.fa-th
+
+
 		block nav
 
 		block main
@@ -52,19 +55,21 @@ html
 				p.tiny.bold.subtle All images are licensed under a 
 					a.subtle.underline(href="http://creativecommons.org/licenses/by/2.0/deed.en", target="_blank") Creative Commons 2.0
 					|  licence unless other is provided.
-				//- h2.small-plus.skinny.spaced.uppercase Reach out
-				p.skinny
-					| peek.space is created, curated and 
-					i.fa.fa-heart-o
-					| -ed by 
-					a(href="https://twitter.com/gopatrik") @gopatrik
 
-				section.mt.center
+				p
+					b.subtle Like Peekspace? 
+					| Tell your friends!
+					br
+					a.mt05(href="https://twitter.com/share",class="twitter-share-button", data-url="http://peek.space/", data-text="Peekspace – Curated Free-To-Use space photography", data-via="gopatrik", data-size="large") Tweet
+
+
+				section.center
 					.inline(style="text-align:right; vertical-align:middle;")
-						.portrait-frame.inline(style="background-image:url(/img/astro_small.jpg);")
+						.portrait-frame.small.inline(style="background-image:url(/img/astro_small.jpg);")
 					.inline(style="text-align:left; vertical-align:middle; padding-left:10px;")
+						.nm.tiny.bold(style="margin-bottom:5px;") And tell me!
 						.nm.small(style="margin-bottom:5px;") Patrick Goethe
 						div: a(href="https://twitter.com/gopatrik", class="twitter-follow-button" data-show-count="true") Follow @gopatrik
-						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
