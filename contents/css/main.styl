@@ -14,7 +14,7 @@ body
 a
 	color modal
 	text-decoration none
-	
+
 
 h1,h2,h3,h4,h5,h6
 	color rgba(foreground, 0.6)
@@ -24,11 +24,52 @@ p
 article, div, section, header, main, img
 	box-sizing border-box
 
+
+.narrow
+	margin auto
+	width 500px
+
+header.site-head
+	position relative
+	background-image url('/img/headerbackground.jpg')
+	background-size cover
+	height auto
+	min-height 300px
+	box-shadow inset 0 -30px 90px 1px rgba(black,0.5)
+	overflow hidden
+	// background-position 0 0
+	// transition background-position 5s
+	// &:hover
+	// 	background-position 0 -100px
+		
+	h1,p, a
+		color background
+	.rad-border
+		padding 0
+		margin 0
+		position: absolute
+		bottom -3px
+		left 0
+		height 50px
+		width 104%
+		z-index 10
+		background-repeat no-repeat
+		background-position center bottom
+		// background-size cover
+		background-size cover
+			
+		// background-image url('/img/rad-border-01.svg')
+		
+		// background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'><linearGradient id='gradient'><stop offset='10%' stop-color='#F00'/><stop offset='90%' stop-color='#fcc'/> </linearGradient><rect fill='url(#gradient)' x='0' y='0' width='100%' height='100%'/></svg>");
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000px' height='28.448px'><path fill='"background"' d='M500,0C178.087,0,0,28.448,0,28.448h500h500C1000,28.448,821.913,0,500,0z'/></svg>");
+
+		
+		// xmlns:xlink="http://www.w3.org/1999/xlink"
+
+
 .logo
 	font-family avenir, futura, sans
-	font-weight 900
 	text-transform uppercase
-	color rgba(foreground, 0.6)
 	.spaced
 		letter-spacing 15px
 
@@ -42,21 +83,18 @@ article, div, section, header, main, img
 	align-items center
 	article
 		flex 1 auto
-		// outline 10px solid rgba(foreground,0.8)
-		// .metadata
-		// 	background background
-		// 	z-index 100
-		// 	bottom 0
-		// 	width 100%
-		// 	opacity 0
-		// 	transform translate3d(0, 40px, 0);
-		// 	transition opacity 5s, transform 1s
+		
 		.image
-			// background foreground
 			overflow hidden
-			// padding 20px
-			border 2px solid foreground
-			// &:hover
+			// border-radius 30% 4px / 10% 10px
+			border-radius 50% 50%/8% 8%
+				
+			transition border-radius .3s
+			
+			&:hover
+				box-shadow 0 0 4px 1px rgba(black,0.4)
+			// 	// border-radius 0
+			// 	border-radius 4px
 			// 	.metadata
 			// 		transition opacity .5s, transform .5s
 			// 		opacity 0.9
@@ -67,7 +105,7 @@ article, div, section, header, main, img
 				transition transform 0.5s
 				max-width 100%
 				vertical-align middle
-				transform scale3d(1.1, 1.1, 1);
+				// transform scale3d(1.1, 1.1, 1);
 				&:hover
 					transform none
 					
@@ -92,6 +130,15 @@ main.preview
 		flex-flow row wrap
 		justify-content space-around
 		align-items center
+		.image
+			overflow hidden
+			// border-radius 20px
+			// border-radius 50% 50%/8% 8%
+			border-radius 50% 50%/8% 8%
+			transition border-radius .1s
+			&:hover
+				box-shadow 0 0 2px 1px rgba(black,0.5)
+				border-radius 50%
 		img
 			max-width 100%
 			vertical-align middle
@@ -106,14 +153,6 @@ main.preview
 			
 			flex 1 300px
 			overflow hidden
-
-			// img
-			// 	max-width 100%
-			// 	// height auto
-
-			// &:nth-child(3n + 1), &:nth-child(3n + 2)
-			// 	flex 1 50%
-			// 	height 300px
 
 		
 
@@ -141,4 +180,16 @@ main.preview
 			// 	&:before
 			// 		background modal
 			// 		transform scale3d(1,2,2)
-					
+
+.portrait-frame
+	display inline-block
+	width 100px
+	height @width
+	display inline-block
+	// overflow hidden
+	background rgba(black,0.05)
+	background-size cover
+	background-position center center
+	border 2px solid white
+	box-shadow 0 0 3px 1px rgba(black, 0.2)
+	border-radius (@height/2)

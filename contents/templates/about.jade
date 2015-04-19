@@ -1,4 +1,30 @@
 extends layout
 
+block altview
+
+
 block main
-	h1 Contact
+	section.narrow.left
+		h1.center.spaced.uppercase.skinny Hello Stargazer
+		p
+			b Peek.space 
+			| exists because these beautiful free images of space were scattered in an unaccessible sea of quantity and flash-slide shows. I've gone through thousands of images and picked out the best ones, so you don't have to!
+
+
+		p If you want to send over some 
+			i.fa.fa-heart-o
+			|  or yell at me for doing something wrong, you are welcome to reach out through 
+			a(href="http://twitter.com/gopatrik", target="_blank") Twitter
+			|.
+		.mt2.center
+			.inline(style="text-align:right; vertical-align:middle;")
+				.portrait-frame.inline(style="background-image:url(/img/astro_small.jpg);")
+			.inline(style="text-align:left; vertical-align:middle; padding-left:10px;")
+				.nm.small(style="margin-bottom:5px;") Patrick Goethe
+				div: a(href="https://twitter.com/gopatrik", class="twitter-follow-button" data-show-count="true") Follow @gopatrik
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+		p.center You'll also find more info on my personal site 
+			a(href="http://www.slashie.org/", target="_blank") slashie.org
+
+block footer

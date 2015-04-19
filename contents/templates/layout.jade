@@ -4,9 +4,10 @@ html
 		title= title
 		meta(name='description', content= description)
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
+		link(rel="stylesheet", type="text/css", href="/fonts/font-awesome/font-awesome.min.css")
 
 	body
-		header
+		header.site-head
 			h1.mt2.inline
 				//- a.no-decoration.logo(href="/") The 
 				//- 	span.modal Royal 
@@ -14,33 +15,55 @@ html
 				//- a.no-decoration.logo(href="/")
 				//- 	span.modal royalty
 				//- 	| Space
-				a.no-decoration.logo(href="/")
-					span.skinny
-						span.spaced
-							span.modal peek
-							| spac
-						|e
+				a.no-decoration.logo.small-plus(href="/")
+					span.spaced PEEKSPAC
+					| E
+				.rad-border
 					
 
+			//- p.nm ––––
 
-			p.nm Curated royalty free space photography
+			p.nm.spaced.uppercase.skinny Curated 
+				span.bold free to use 
+				| space photography
 
-			p ––––
+				a
 
-			nav.mt2
-				ul.no-style-type.mt.slash-list
-					li.inline: a.no-decoration(href="/") Submit
-					block altview
-						li.inline: a.no-decoration(href="/grid") Grid
-					li.inline: a.no-decoration(href="/about") About
-					li.inline: a.no-decoration(href="https://twitter.com/gopatrik") Twitter
+		nav
+			ul.no-style-type.mt.slash-list
+				li.inline: a.no-decoration(href="https://twitter.com/intent/tweet?screen_name=gopatrik&text=Hey!%20Take%20a%20look%20at%20this%20licence%20free%20image%20for%20peek.space: (url)", data-related="gopatrik", target="_blank")
+					i.fa.fa-twitter
+					|  Submit
+				li.inline: a.no-decoration(href="/about") About
+				li.inline: a.no-decoration(href="https://twitter.com/gopatrik", target="_blank")
+					i.fa.fa-twitter
+					|  Follow
 
+			.small-plus
+				block altview
+					a.no-decoration.subtle(href="/grid"): i.fa.fa-th
 		block nav
 
 		block main
 
+		block footer
+			footer.mt4(style="margin-bottom:40px;")
+				p.tiny.bold.subtle All images are licensed under a 
+					a.subtle.underline(href="http://creativecommons.org/licenses/by/2.0/deed.en", target="_blank") Creative Commons 2.0
+					|  licence unless other is provided.
+				//- h2.small-plus.skinny.spaced.uppercase Reach out
+				p.skinny
+					| peek.space is created, curated and 
+					i.fa.fa-heart-o
+					| ed by 
+					a(href="https://twitter.com/gopatrik") @gopatrik
 
-		footer.mt2
-			p peek.space is created, curated and maintained by 
-				a(href="https://twitter.com/gopatrik") @gopatrik
+				section.mt.center
+					.inline(style="text-align:right; vertical-align:middle;")
+						.portrait-frame.inline(style="background-image:url(/img/astro_small.jpg);")
+					.inline(style="text-align:left; vertical-align:middle; padding-left:10px;")
+						.nm.small(style="margin-bottom:5px;") Patrick Goethe
+						div: a(href="https://twitter.com/gopatrik", class="twitter-follow-button" data-show-count="true") Follow @gopatrik
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 

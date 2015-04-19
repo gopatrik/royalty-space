@@ -26,28 +26,27 @@ gulp.task('metalsmith', function (done) {
         url: 'https://slashie.org/'
       }
     })
-    .use(ignore('./contents/templates/'))
     .use(markdown())
     .use(stylus())
     .use(autoprefixer())
     .use(collections({
-    	articles: {
-		    pattern: 'articles/*/*.html',
-		    sortBy: 'date',
-		    reverse: true
-	  	}
+      articles: {
+        pattern: 'articles/*/*.html',
+        sortBy: 'date',
+        reverse: true
+      }
     }))
-	.use(branch('articles/**/**')
-	  .use(permalinks({
-	    pattern: 'art/:title',
-	    relative: false
-	  }))
-	)
-	// .use(branch('!articles/**/**.html')
-	//   .use(branch('!index.md').use(permalinks({
-	//     relative: false
-	//   })))
-	// )
+  .use(branch('articles/**/**')
+    .use(permalinks({
+      pattern: 'art/:title',
+      relative: false
+    }))
+  )
+  // .use(branch('!articles/**/**.html')
+  //   .use(branch('!index.md').use(permalinks({
+  //     relative: false
+  //   })))
+  // )
     .use(pagination({
       'collections.articles': {
         perPage: 8,
@@ -69,6 +68,7 @@ gulp.task('metalsmith', function (done) {
     }))
     .source('./contents')
     .destination('./build')
+    .use(ignore('templates/*'))
 
 
   .build(function (err) {
